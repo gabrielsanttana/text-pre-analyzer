@@ -1,10 +1,14 @@
-import views.Menu;
+import controllers.Controller;
 
 public class Main {
 
   public static void main(String args[]) {
-    Menu menu = new Menu();
+    Controller controller = new Controller();
 
-    menu.printMenu();
+    for(String fileName: args) {
+      System.out.println("⚙️ Working on " + fileName + " ...");
+    }
+
+    System.out.println("🚀 Finished!");
   }
 }
