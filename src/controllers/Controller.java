@@ -9,4 +9,10 @@ public class Controller {
 
     fileReader.printHello();
   }
+
+  public void readFile(String file) {
+    FileReader fileReader = new FileReader();
+
+    fileReader.readFile(file);
+  }
 }

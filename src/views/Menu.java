@@ -5,22 +5,17 @@ import java.util.Scanner;
 
 public class Menu {
 
+  private String[] files;
+
+  public Menu(String[] files) {
+    this.files = files;
+  }
+
   public void printMenu() {
     Controller controller = new Controller();
 
-    System.out.println("Boas-vindas! Escolha uma das opções:");
-
-    System.out.println("1 - Printar hello");
-
-    Scanner scanner = new Scanner(System.in);
-
-    int option = scanner.nextInt();
-
-    switch (option) {
-      case 1:
-        controller.printHello();
+    for (String file : files) {
+      controller.readFile(file);
     }
-
-    scanner.close();
   }
 }
