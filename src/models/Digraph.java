@@ -4,12 +4,24 @@ import java.util.HashMap;
 
 public class Digraph {
 
-  HashMap<String, String> wordsMap = new HashMap<>();
+  HashMap<String, ArrayList<String>> wordsMap = new HashMap<>();
 
   public Digraph(String[] words) {
-    for (String word : words) {
-      wordsMap.put(word, word);
+    for (int i = 0; i < words.length; i++) {
+      if (i < words.length-1) {
+        wordsMap.add(words[i], words[i+1]);
+      }
     }
+    /*
+    for (int i = 0; i < words.length; i++) {
+      if (i < words.length-1) {
+        if (wordsMap.get(words[i]) == null)
+          wordsMap.put(words[i], new ArrayList<String>());
+
+        wordsMap.get(words[i]).add(words[i+1]);
+      }
+    }
+    */
   }
 
   public String convertToString(
