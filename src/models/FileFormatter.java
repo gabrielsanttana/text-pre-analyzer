@@ -1,6 +1,7 @@
 package models;
 
 public class FileFormatter {
+
   public String serializeText(String text) {
     String serializedText;
 
