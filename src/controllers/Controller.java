@@ -2,6 +2,7 @@ package controllers;
 
 import models.FileFormatter;
 import models.TextReader;
+import models.TextWriter;
 
 public class Controller {
 
@@ -15,7 +16,21 @@ public class Controller {
     String rawText = readFile(file);
     String formattedText = serializeText(rawText);
 
-    System.out.println(formattedText);
+    String t = "anos, de\n"+
+    "data, querida\n"+
+    "de, vida\n"+    
+    "felicidades, muitos\n"+   
+    "muitas, felicidades\n"+   
+    "muitos, anos\n"+  
+    "nesta, data\n"+  
+    "parabéns, pra\n"+  
+    "pra, você\n"+  
+    "querida, muitas\n"+  
+    "você, nesta\n";
+
+    writeFile(file, formattedText);
+
+    //System.out.println(formattedText);
   }
 
   public String readFile(String file) {
@@ -28,5 +43,11 @@ public class Controller {
     FileFormatter fileFormatter = new FileFormatter();
 
     return fileFormatter.serializeText(text);
+  }
+
+  public void writeFile(String filePath, String text) {
+    TextWriter textWriter = new TextWriter();
+
+    textWriter.writeFile(filePath, text);
   }
 }
