@@ -7,11 +7,9 @@ public class Main {
 
     for (String fileName : args) {
       controller.processFile(fileName);
-      //System.out.println("Working on " + fileName + " ...");
       System.out.println("Working on " + fileName + " ...");
     }
 
-    //System.out.println(" Finished!");
     System.out.println("Finished!");
   }
 }
