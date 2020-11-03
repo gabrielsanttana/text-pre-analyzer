@@ -29,8 +29,6 @@ public class Controller {
     "você, nesta\n";
 
     writeFile(file, formattedText);
-
-    //System.out.println(formattedText);
   }
 
   public String readFile(String file) {
