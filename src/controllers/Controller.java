@@ -2,6 +2,7 @@ package controllers;
 
 import models.FileFormatter;
 import models.TextReader;
+import models.TextWriter;
 
 public class Controller {
 
@@ -14,8 +15,8 @@ public class Controller {
   public void processFile(String file) {
     String rawText = readFile(file);
     String formattedText = serializeText(rawText);
-    
-    System.out.println(formattedText);
+
+    writeFile(file, formattedText);
   }
 
   public String readFile(String file) {
@@ -28,5 +29,11 @@ public class Controller {
     FileFormatter fileFormatter = new FileFormatter();
 
     return fileFormatter.serializeText(text);
+  }
+
+  public void writeFile(String filePath, String text) {
+    TextWriter textWriter = new TextWriter();
+
+    textWriter.writeFile(filePath, text);
   }
 }
