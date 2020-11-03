@@ -13,12 +13,8 @@ public class Controller {
 
   public void processFile(String file) {
     String rawText = readFile(file);
-    System.out.println(rawText);
-    for (char c : rawText.toCharArray()) {
-        //System.out.print((int)c + ",");
-    }
-
     String formattedText = serializeText(rawText);
+    
     System.out.println(formattedText);
   }
 

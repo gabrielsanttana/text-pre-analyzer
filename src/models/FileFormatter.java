@@ -9,7 +9,7 @@ public class FileFormatter {
 
     serializedText =
       text
-        .replaceAll("[–.,]", "")
+        .replaceAll("[():;.,!?\\-]", "")
         .replaceAll("\n+","\n")
         .replaceAll("\n", " ")
         .trim()
