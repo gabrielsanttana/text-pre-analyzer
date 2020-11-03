@@ -1,5 +1,7 @@
 package models;
 
+import java.text.Normalizer;
+
 public class FileFormatter {
 
   public String serializeText(String text) {
@@ -7,11 +9,21 @@ public class FileFormatter {
 
     serializedText =
       text
+        .replaceAll("[–.,]", "")
+        .replaceAll("\n+","\n")
         .replaceAll("\n", " ")
+        .trim()
+        .replaceAll(" +", " ")
         .toLowerCase()
         .replaceAll("\r", "")
-        .replaceAll("[^a-záàâãéèêíóôõúç\\-\\d ]", "")
         .trim();
+    
+    //.replaceAll("[^a-záàâãéèêíóôõúç\\-\\d ]", "")
+    
+    serializedText = 
+      Normalizer
+        .normalize(serializedText, Normalizer.Form.NFD)
+        .replaceAll("[^\\p{ASCII}]", "");
 
     return serializedText;
   }
