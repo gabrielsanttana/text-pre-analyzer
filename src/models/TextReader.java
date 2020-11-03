@@ -6,10 +6,6 @@ import java.io.FileReader;
 
 public class TextReader {
 
-  public void printHello() {
-    System.out.println("Hello, world!");
-  }
-
   public String readFile(String path) {
     File f = new File(path);
 
