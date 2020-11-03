@@ -1,11 +1,12 @@
 package controllers;
 
+import models.DigraphConverter;
 import models.FileFormatter;
 import models.TextReader;
 import models.TextWriter;
 
 public class Controller {
-  
+
   public String readFile(String file) {
     TextReader textReader = new TextReader();
 
@@ -23,6 +24,12 @@ public class Controller {
     FileFormatter fileFormatter = new FileFormatter();
 
     return fileFormatter.serializeText(text);
+  }
+
+  public String convertToCSVFormatter(MultiMap<String, String> lines) {
+    DigraphConverter digraphConverter = new DigraphConverter();
+
+    return digraphConverter.convert(lines);
   }
 
   public void writeFile(String filePath, String text) {
