@@ -5,11 +5,11 @@ import models.TextReader;
 import models.TextWriter;
 
 public class Controller {
-
-  public void printHello() {
+  
+  public String readFile(String file) {
     TextReader textReader = new TextReader();
 
-    textReader.printHello();
+    return textReader.readFile(file);
   }
 
   public void processFile(String file) {
@@ -17,12 +17,6 @@ public class Controller {
     String formattedText = serializeText(rawText);
 
     writeFile(file, formattedText);
-  }
-
-  public String readFile(String file) {
-    TextReader textReader = new TextReader();
-
-    return textReader.readFile(file);
   }
 
   public String serializeText(String text) {
