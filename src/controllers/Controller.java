@@ -16,21 +16,7 @@ public class Controller {
     String rawText = readFile(file);
     String formattedText = serializeText(rawText);
 
-    String t = "anos, de\n"+
-    "data, querida\n"+
-    "de, vida\n"+    
-    "felicidades, muitos\n"+   
-    "muitas, felicidades\n"+   
-    "muitos, anos\n"+  
-    "nesta, data\n"+  
-    "parabéns, pra\n"+  
-    "pra, você\n"+  
-    "querida, muitas\n"+  
-    "você, nesta\n";
-
     writeFile(file, formattedText);
-
-    //System.out.println(formattedText);
   }
 
   public String readFile(String file) {
