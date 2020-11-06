@@ -1,12 +1,21 @@
 package controllers;
 
 import models.DigraphConverter;
-import models.FileFormatter;
+import models.WordFormatter;
+import models.DigraphGenerator;
 import models.MultiMap;
 import models.TextReader;
 import models.TextWriter;
 
 public class Controller {
+
+  public void processFile(String file) {
+    String rawText = readFile(file);
+    String[] formattedWords = serializeText(rawText);
+    MultiMap<String, String> digraph = generateDigraph(formattedWords);
+    String convertedDigraph = convertToCSVFormatter(digraph);
+    writeFile(file, convertedDigraph);
+  }
 
   public String readFile(String file) {
     TextReader textReader = new TextReader();
@@ -14,17 +23,16 @@ public class Controller {
     return textReader.readFile(file);
   }
 
-  public void processFile(String file) {
-    String rawText = readFile(file);
-    String formattedText = serializeText(rawText);
+  public String[] serializeText(String text) {
+    WordFormatter wordFormatter = new WordFormatter();
 
-    writeFile(file, formattedText);
+    return wordFormatter.serializeText(text);
   }
 
-  public String serializeText(String text) {
-    FileFormatter fileFormatter = new FileFormatter();
+  public MultiMap<String, String> generateDigraph(String[] words) {
+    DigraphGenerator digraphGenerator = new DigraphGenerator();
 
-    return fileFormatter.serializeText(text);
+    return digraphGenerator.generate(words);
   }
 
   public String convertToCSVFormatter(MultiMap<String, String> lines) {
