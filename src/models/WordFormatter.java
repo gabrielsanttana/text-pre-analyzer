@@ -15,9 +15,13 @@ public class WordFormatter {
       .replaceAll(" +", " ")
       .toLowerCase()
       .replaceAll("\r", "")
+      .replaceAll("[áàâã]", "a")
+      .replaceAll("[éèê]", "e")
+      .replaceAll("[í]", "i")
+      .replaceAll("[óôõ]", "o")
+      .replaceAll("[ú]", "u")
+      .replaceAll("[ç]", "c")
       .trim();
-
-    serializedText = Normalizer.normalize(serializedText, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
 
     return serializedText.split(" ");
   }
