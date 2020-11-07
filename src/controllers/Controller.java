@@ -1,11 +1,6 @@
 package controllers;
 
-import models.DigraphConverter;
-import models.WordFormatter;
-import models.DigraphGenerator;
-import models.MultiMap;
-import models.TextReader;
-import models.TextWriter;
+import models.*;
 
 public class Controller {
 

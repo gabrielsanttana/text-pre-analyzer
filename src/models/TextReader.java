@@ -13,12 +13,12 @@ public class TextReader {
       BufferedReader br = null;
       try {
         br = new BufferedReader(new FileReader(f));
-        
+
         String st;
         StringBuilder sb = new StringBuilder();
-        while((st = br.readLine()) != null) {
-            sb.append(st);
-            sb.append("\n");
+        while ((st = br.readLine()) != null) {
+          sb.append(st);
+          sb.append("\n");
         }
 
         return sb.toString();

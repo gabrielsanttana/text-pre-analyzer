@@ -1,15 +1,9 @@
-import controllers.Controller;
+import views.MainView;
 
 public class Main {
 
   public static void main(String args[]) {
-    Controller controller = new Controller();
-
-    for (String fileName : args) {
-      controller.processFile(fileName);
-      System.out.println("Working on " + fileName + " ...");
-    }
-
-    System.out.println("Finished!");
+    MainView.start(args);
+    MainView.finish();
   }
 }
