@@ -15,7 +15,7 @@ public class DigraphConverter {
     StringBuilder serializedText = new StringBuilder();
 
     for (String nextWord : this.sortKeys(lines)) {
-      serializedText.append(nextWord + ", " + lines.get(nextWord) + ";\n");
+      serializedText.append(nextWord + ", " + lines.get(nextWord).toString().replace("[", "").replace("]", "") + "\n");
     }
 
     return serializedText.toString();
