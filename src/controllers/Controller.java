@@ -4,12 +4,12 @@ import models.*;
 
 public class Controller {
 
-  public void processFile(String file) {
-    String rawText = readFile(file);
+  public void processFile(String filePath) {
+    String rawText = readFile(filePath);
     String[] formattedWords = serializeText(rawText);
     MultiMap<String, String> digraph = generateDigraph(formattedWords);
     String convertedDigraph = convertToCSVFormatter(digraph);
-    writeFile(file, convertedDigraph);
+    writeFile(convertedDigraph, filePath);
   }
 
   public String readFile(String file) {
@@ -36,9 +36,9 @@ public class Controller {
     return digraphConverter.convert(lines);
   }
 
-  public void writeFile(String filePath, String text) {
+  public void writeFile(String text, String filePath) {
     TextWriter textWriter = new TextWriter();
 
-    textWriter.writeFile(filePath, text);
+    textWriter.writeFile(text, filePath);
   }
 }
