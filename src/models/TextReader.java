@@ -4,10 +4,18 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
+/**
+ * A class the reads and returns a string with the text contained in a given file
+ */
 public class TextReader {
 
-  public String readFile(String path) {
-    File f = new File(path);
+  /**
+   *
+   * @param filePath the URL of the file to be read
+   * @return a single string with the text from the given file
+   */
+  public String readFile(String filePath) {
+    File f = new File(filePath);
 
     if (f.exists()) {
       BufferedReader br = null;
