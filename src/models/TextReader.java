@@ -6,21 +6,31 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileReader;
 
+/**
+ * A class the reads and returns a string with the text contained in a given file
+ */
 public class TextReader {
 
-  public String readFile(String path) throws IOException, FileNotFoundException {
-    File f = new File(path);
+  /**
+   *
+   * @param filePath the URL of the file to be read
+   * @return a single string with the text from the given file
+   */
+  public String readFile(String filePath) throws IOException, FileNotFoundException {
+    File file = new File(filePath);
 
-    if (f.exists()) {
-      BufferedReader br = null;
+    if (file.exists()) {
+      BufferedReader bufferedReader = null;
+
       try {
-        br = new BufferedReader(new FileReader(f));
+        bufferedReader = new BufferedReader(new FileReader(file));
 
-        String st;
-        StringBuilder sb = new StringBuilder();
-        while ((st = br.readLine()) != null) {
-          sb.append(st);
-          sb.append("\n");
+        String fileString;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while ((fileString = bufferedReader.readLine()) != null) {
+          stringBuilder.append(fileString);
+          stringBuilder.append("\n");
         }
 
         return sb.toString();

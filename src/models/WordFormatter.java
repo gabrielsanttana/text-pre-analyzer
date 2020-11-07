@@ -2,12 +2,20 @@ package models;
 
 import java.text.Normalizer;
 
+/**
+ * A class the serializes a given raw text, removing all the special characters
+ */
 public class WordFormatter {
 
-  public String[] serializeText(String text) {
-    String serializedText;
+  /**
+   *
+   * @param text the raw text to be formatted
+   * @return the formatted text without all the special characters
+   */
+  public String[] formatText(String text) {
+    String formattedText;
 
-    serializedText =
+    formattedText =
       text
         .replaceAll("[():;.,#$%@*&!?\\-]", "")
         .replaceAll("\n+", "\n")
@@ -29,6 +37,6 @@ public class WordFormatter {
         
         */
 
-    return serializedText.split(" ");
+    return formattedText.split(" ");
   }
 }

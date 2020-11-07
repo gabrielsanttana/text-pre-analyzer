@@ -4,6 +4,11 @@ import java.util.Collection;
 
 public class DigraphGenerator {
 
+  /**
+   *
+   * @param words an array of strings containing all file words
+   * @return the digraph of the file words in a MultiMap structure
+   */
   public MultiMap<String, String> generate(String[] words) {
     MultiMap<String, String> digraph = new MultiMap<>();
 
