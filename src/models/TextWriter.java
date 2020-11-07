@@ -16,6 +16,12 @@ public class TextWriter {
    */
   public void writeFile(String text, String filePath) {
     filePath = filePath.replace(".txt", ".csv");
+  public void writeFile(String filePath, String text) {
+    try {
+      filePath = filePath.replace(".txt", ".csv");
+    } catch(Exception e) {
+      
+    }
 
     try {
       FileWriter fileWriter = new FileWriter(filePath);

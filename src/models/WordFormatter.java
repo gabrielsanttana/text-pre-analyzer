@@ -24,13 +24,18 @@ public class WordFormatter {
         .replaceAll(" +", " ")
         .toLowerCase()
         .replaceAll("\r", "")
+        .trim();
+
+        /*
+        
         .replaceAll("[áàâã]", "a")
         .replaceAll("[éèê]", "e")
         .replaceAll("[í]", "i")
         .replaceAll("[óôõ]", "o")
         .replaceAll("[ú]", "u")
         .replaceAll("[ç]", "c")
-        .trim();
+        
+        */
 
     return formattedText.split(" ");
   }

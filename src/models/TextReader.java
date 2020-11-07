@@ -2,6 +2,8 @@ package models;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.FileReader;
 
 /**
@@ -19,6 +21,8 @@ public class TextReader {
 
     if (file.exists()) {
       BufferedReader bufferedReader = null;
+  public String readFile(String path) throws IOException, FileNotFoundException {
+    File f = new File(path);
 
       try {
         bufferedReader = new BufferedReader(new FileReader(file));
@@ -36,7 +40,13 @@ public class TextReader {
         return stringBuilder.toString();
       } catch (Exception e) {}
     }
+        return sb.toString();
+      } catch (IOException e) {
+        throw e;
+      }
 
-    return "";
+    } else {
+      throw new FileNotFoundException("");
+    }
   }
 }
