@@ -19,11 +19,13 @@ public class TextReader {
 
     if (file.exists()) {
       BufferedReader bufferedReader = null;
+
       try {
         bufferedReader = new BufferedReader(new FileReader(file));
 
         String fileString;
         StringBuilder stringBuilder = new StringBuilder();
+
         while ((fileString = bufferedReader.readLine()) != null) {
           stringBuilder.append(fileString);
           stringBuilder.append("\n");

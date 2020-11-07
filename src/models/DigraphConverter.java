@@ -14,6 +14,7 @@ public class DigraphConverter {
    */
   public List<String> sortKeys(MultiMap<String, String> digraph) {
     List<String> sortedKeys = new ArrayList<>(digraph.getKeySet());
+
     Collections.sort(sortedKeys);
 
     return sortedKeys;

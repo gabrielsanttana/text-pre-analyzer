@@ -23,7 +23,10 @@ public class TextWriter {
 
       printWriter.write(text);
 
+      printWriter.flush();
       printWriter.close();
+      fileWriter.flush();
+      fileWriter.close();
     } catch (IOException e) {}
   }
 }
