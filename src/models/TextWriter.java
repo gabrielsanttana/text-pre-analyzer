@@ -7,7 +7,11 @@ import java.io.PrintWriter;
 public class TextWriter {
 
   public void writeFile(String filePath, String text) {
-    filePath = filePath.replace(".txt", ".csv");
+    try {
+      filePath = filePath.replace(".txt", ".csv");
+    } catch(Exception e) {
+      
+    }
 
     try {
       FileWriter fileWriter = new FileWriter(filePath);

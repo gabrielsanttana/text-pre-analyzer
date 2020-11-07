@@ -1,5 +1,7 @@
 package controllers;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import models.*;
 
 public class Controller {
@@ -13,9 +15,21 @@ public class Controller {
   }
 
   public String readFile(String file) {
-    TextReader textReader = new TextReader();
 
-    return textReader.readFile(file);
+    String result = "";
+    try {
+      TextReader textReader = new TextReader();
+      result = textReader.readFile(file);
+
+    } catch (FileNotFoundException e) {
+      System.out.println("File " + file + " was not found.");
+
+    } catch (IOException e) {
+      System.out.println("Error while trying to read file " + file);
+
+    }
+
+    return result;
   }
 
   public String[] serializeText(String text) {
