@@ -13,7 +13,7 @@ public class Controller {
    */
   public void processFile(String filePath) {
     String rawText = readFile(filePath);
-    String[] formattedWords = serializeText(rawText);
+    String[] formattedWords = formatText(rawText);
     MultiMap<String, String> digraph = generateDigraph(formattedWords);
     String convertedDigraph = convertToCSVFormatter(digraph);
     writeFile(convertedDigraph, filePath);
@@ -35,10 +35,10 @@ public class Controller {
    * @param text the raw text to be formatted
    * @return the formatted text without all the special characters
    */
-  public String[] serializeText(String text) {
+  public String[] formatText(String text) {
     WordFormatter wordFormatter = new WordFormatter();
 
-    return wordFormatter.serializeText(text);
+    return wordFormatter.formatText(text);
   }
 
   /**

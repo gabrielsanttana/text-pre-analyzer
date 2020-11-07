@@ -12,10 +12,10 @@ public class WordFormatter {
    * @param text the raw text to be formatted
    * @return the formatted text without all the special characters
    */
-  public String[] serializeText(String text) {
-    String serializedText;
+  public String[] formatText(String text) {
+    String formattedText;
 
-    serializedText =
+    formattedText =
       text
         .replaceAll("[():;.,#$%@*&!?\\-]", "")
         .replaceAll("\n+", "\n")
@@ -32,6 +32,6 @@ public class WordFormatter {
         .replaceAll("[ç]", "c")
         .trim();
 
-    return serializedText.split(" ");
+    return formattedText.split(" ");
   }
 }

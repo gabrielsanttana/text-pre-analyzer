@@ -15,21 +15,23 @@ public class TextReader {
    * @return a single string with the text from the given file
    */
   public String readFile(String filePath) {
-    File f = new File(filePath);
+    File file = new File(filePath);
 
-    if (f.exists()) {
-      BufferedReader br = null;
+    if (file.exists()) {
+      BufferedReader bufferedReader = null;
       try {
-        br = new BufferedReader(new FileReader(f));
+        bufferedReader = new BufferedReader(new FileReader(file));
 
-        String st;
-        StringBuilder sb = new StringBuilder();
-        while ((st = br.readLine()) != null) {
-          sb.append(st);
-          sb.append("\n");
+        String fileString;
+        StringBuilder stringBuilder = new StringBuilder();
+        while ((fileString = bufferedReader.readLine()) != null) {
+          stringBuilder.append(fileString);
+          stringBuilder.append("\n");
         }
 
-        return sb.toString();
+        bufferedReader.close();
+
+        return stringBuilder.toString();
       } catch (Exception e) {}
     }
 
