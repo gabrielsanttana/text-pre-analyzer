@@ -8,8 +8,10 @@ public abstract class MainView {
     Controller controller = new Controller();
 
     for (String filePath : args) {
-      String[] fileName = filePath.split("/");
-      System.out.println("Working on " + fileName[fileName.length - 1] + "...");
+      String[] splitedFilePath = filePath.split("/");
+      String fileName = splitedFilePath[splitedFilePath.length - 1];
+
+      System.out.println("Working on " + fileName + "...");
       controller.processFile(filePath);
     }
   }
