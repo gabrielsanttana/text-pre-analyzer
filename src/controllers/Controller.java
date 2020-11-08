@@ -21,7 +21,7 @@ public class Controller {
       String rawText = readFile(filePath);
       String[] formattedWords = formatText(rawText);
       MultiMap<String, String> digraph = generateDigraph(formattedWords);
-      String convertedDigraph = convertToCSVFormatter(digraph);
+      String convertedDigraph = convertToCSV(digraph);
       writeFile(convertedDigraph, filePath);
 
     } catch (Exception e) {
@@ -99,7 +99,7 @@ public class Controller {
    * @return a digraph in a single string format
      * @throws models.exceptions.FailedToConvertDigraphException
    */
-  public String convertToCSVFormatter(MultiMap<String, String> lines) throws FailedToConvertDigraphException {
+  public String convertToCSV(MultiMap<String, String> lines) throws FailedToConvertDigraphException {
     
     try {
       DigraphConverter digraphConverter = new DigraphConverter();
