@@ -12,6 +12,7 @@ public class DigraphGenerator {
    *
    * @param words an array of strings containing all file words
    * @return the digraph of the file words in a MultiMap structure
+     * @throws models.exceptions.FailedToGenerateDigraphException
    */
   public MultiMap<String, String> generate(String[] words) throws FailedToGenerateDigraphException {
     MultiMap<String, String> digraph = new MultiMap<>();

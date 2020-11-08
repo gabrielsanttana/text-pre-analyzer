@@ -12,6 +12,7 @@ public class DigraphConverter {
    *
    * @param digraph a MultipMap with the key being the first word of the line and the value being a collection of words (strings)
    * @return all MultiMap keys in alphabetical order
+     * @throws models.exceptions.FailedToConvertDigraphException
    */
   public List<String> sortKeys(MultiMap<String, String> digraph) throws FailedToConvertDigraphException {
     List<String> sortedKeys = new ArrayList<>(digraph.getKeySet());
@@ -25,6 +26,7 @@ public class DigraphConverter {
    *
    * @param digraph a MultipMap with the key being the first word of the line and the value being a collection of words (strings)
    * @return a digraph in a single string format
+     * @throws models.exceptions.FailedToConvertDigraphException
    */
   public String convert(MultiMap<String, String> digraph) throws FailedToConvertDigraphException {
     StringBuilder formattedText = new StringBuilder();

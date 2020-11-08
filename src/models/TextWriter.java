@@ -13,6 +13,7 @@ public class TextWriter {
    *  Writes the given text on the file from the given URL
    * @param text the text to be written on the file
    * @param filePath the URL of the file to be written
+     * @throws java.io.IOException
    */
   public void writeFile(String text, String filePath) throws IOException {
     filePath = filePath.replace(".txt", ".csv");

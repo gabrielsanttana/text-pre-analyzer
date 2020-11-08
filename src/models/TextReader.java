@@ -16,6 +16,8 @@ public class TextReader {
    *
    * @param filePath the URL of the file to be read
    * @return a single string with the text from the given file
+     * @throws java.io.FileNotFoundException
+     * @throws java.io.IOException
    */
   public String readFile(String filePath) throws IOException, FileNotFoundException {
     File file = new File(filePath);

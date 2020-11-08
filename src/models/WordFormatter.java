@@ -9,6 +9,7 @@ public class WordFormatter {
    *
    * @param text the raw text to be formatted
    * @return the formatted text without all the special characters
+     * @throws java.lang.RuntimeException
    */
   public String[] formatText(String text) throws RuntimeException {
     String formattedText;
