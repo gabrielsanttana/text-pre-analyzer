@@ -24,6 +24,8 @@ public class TextWriter {
     }
 
     try {
+      filePath = filePath.replace(".txt", ".csv");
+
       FileWriter fileWriter = new FileWriter(filePath);
       PrintWriter printWriter = new PrintWriter(fileWriter);
 

@@ -28,10 +28,9 @@ public class DigraphConverter {
   public String convert(MultiMap<String, String> digraph) {
     StringBuilder formattedText = new StringBuilder();
 
-    for (String nextWord : this.sortKeys(digraph)) {
-      formattedText.append(nextWord + ", " + digraph.get(nextWord) + ";\n");
     for (String nextWord : this.sortKeys(lines)) {
       serializedText.append(nextWord + ", " + lines.get(nextWord).toString().replace("[", "").replace("]", "") + "\n");
+
     }
 
     return formattedText.toString();

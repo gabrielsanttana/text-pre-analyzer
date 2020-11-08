@@ -16,7 +16,7 @@ public class TextReader {
    * @param filePath the URL of the file to be read
    * @return a single string with the text from the given file
    */
-  public String readFile(String filePath) {
+  public String readFile(String filePath) throws IOException, FileNotFoundException {
     File file = new File(filePath);
 
     if (file.exists()) {
@@ -35,10 +35,13 @@ public class TextReader {
           stringBuilder.append("\n");
         }
 
-        bufferedReader.close();
+        return sb.toString();
+      } catch (IOException e) {
+        throw e;
+      }
 
-        return stringBuilder.toString();
-      } catch (Exception e) {}
+    } else {
+      throw new FileNotFoundException("");
     }
         return sb.toString();
       } catch (IOException e) {
