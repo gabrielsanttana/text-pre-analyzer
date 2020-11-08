@@ -1,3 +1,4 @@
+
 package models;
 
 import java.io.BufferedReader;
@@ -21,35 +22,24 @@ public class TextReader {
 
     if (file.exists()) {
       BufferedReader bufferedReader = null;
-  public String readFile(String path) throws IOException, FileNotFoundException {
-    File f = new File(path);
 
-      try {
-        bufferedReader = new BufferedReader(new FileReader(file));
+      bufferedReader = new BufferedReader(new FileReader(file));
 
-        String fileString;
-        StringBuilder stringBuilder = new StringBuilder();
+      String fileString;
+      StringBuilder stringBuilder = new StringBuilder();
 
-        while ((fileString = bufferedReader.readLine()) != null) {
-          stringBuilder.append(fileString);
-          stringBuilder.append("\n");
-        }
-
-        return sb.toString();
-      } catch (IOException e) {
-        throw e;
+      while ((fileString = bufferedReader.readLine()) != null) {
+        stringBuilder.append(fileString);
+        stringBuilder.append("\n");
       }
 
-    } else {
-      throw new FileNotFoundException("");
-    }
-        return sb.toString();
-      } catch (IOException e) {
-        throw e;
-      }
+      bufferedReader.close();
+
+      return stringBuilder.toString();
 
     } else {
-      throw new FileNotFoundException("");
+
+      throw new FileNotFoundException();
     }
   }
 }

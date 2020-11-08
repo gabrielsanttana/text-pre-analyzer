@@ -1,9 +1,10 @@
 package models;
 
 import java.util.*;
+import models.exceptions.FailedToConvertDigraphException;
 
 /**
- * A class the converts dipraghs into single strings
+ * A class the converts digraphs into single strings
  */
 public class DigraphConverter {
 
@@ -12,7 +13,7 @@ public class DigraphConverter {
    * @param digraph a MultipMap with the key being the first word of the line and the value being a collection of words (strings)
    * @return all MultiMap keys in alphabetical order
    */
-  public List<String> sortKeys(MultiMap<String, String> digraph) {
+  public List<String> sortKeys(MultiMap<String, String> digraph) throws FailedToConvertDigraphException {
     List<String> sortedKeys = new ArrayList<>(digraph.getKeySet());
 
     Collections.sort(sortedKeys);
@@ -25,12 +26,12 @@ public class DigraphConverter {
    * @param digraph a MultipMap with the key being the first word of the line and the value being a collection of words (strings)
    * @return a digraph in a single string format
    */
-  public String convert(MultiMap<String, String> digraph) {
+  public String convert(MultiMap<String, String> digraph) throws FailedToConvertDigraphException {
     StringBuilder formattedText = new StringBuilder();
 
-    for (String nextWord : this.sortKeys(lines)) {
-      serializedText.append(nextWord + ", " + lines.get(nextWord).toString().replace("[", "").replace("]", "") + "\n");
-
+    for (String nextWord : this.sortKeys(digraph)) {
+      String connectedWords = digraph.get(nextWord).toString().replaceAll("\\[", "").replaceAll("]", "");
+      formattedText.append(nextWord + ", " + connectedWords + "\n");
     }
 
     return formattedText.toString();

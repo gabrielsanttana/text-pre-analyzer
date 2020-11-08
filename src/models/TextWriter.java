@@ -14,27 +14,15 @@ public class TextWriter {
    * @param text the text to be written on the file
    * @param filePath the URL of the file to be written
    */
-  public void writeFile(String text, String filePath) {
+  public void writeFile(String text, String filePath) throws IOException {
     filePath = filePath.replace(".txt", ".csv");
-  public void writeFile(String filePath, String text) {
-    try {
-      filePath = filePath.replace(".txt", ".csv");
-    } catch(Exception e) {
-      
-    }
 
-    try {
-      filePath = filePath.replace(".txt", ".csv");
+    FileWriter fileWriter = new FileWriter(filePath);
+    PrintWriter printWriter = new PrintWriter(fileWriter);
 
-      FileWriter fileWriter = new FileWriter(filePath);
-      PrintWriter printWriter = new PrintWriter(fileWriter);
+    printWriter.write(text);
 
-      printWriter.write(text);
-
-      printWriter.flush();
-      printWriter.close();
-      fileWriter.flush();
-      fileWriter.close();
-    } catch (IOException e) {}
+    printWriter.close();
+    fileWriter.close();
   }
 }
