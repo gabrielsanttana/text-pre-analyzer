@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.charset.Charset;
 
 /**
  * A class the reads and returns a string with the text contained in a given file
@@ -23,9 +25,7 @@ public class TextReader {
     File file = new File(filePath);
 
     if (file.exists()) {
-      BufferedReader bufferedReader = null;
-
-      bufferedReader = new BufferedReader(new FileReader(file));
+      BufferedReader bufferedReader = Files.newBufferedReader(file.toPath(), Charset.forName("UTF-8"));
 
       String fileString;
       StringBuilder stringBuilder = new StringBuilder();

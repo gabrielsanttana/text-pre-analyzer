@@ -14,8 +14,9 @@ public class WordFormatter {
   public String[] formatText(String text) throws RuntimeException {
     String formattedText;
 
-    formattedText = text.replaceAll("[():;.,#$%@*&!?{}]", "").replaceAll("\\[\\]", "").replaceAll(" (-)+", "")
-        .replaceAll("\n+", "\n").replaceAll("\n", " ").trim().replaceAll(" +", " ").toLowerCase().replaceAll("\r", "")
+    formattedText = text.replaceAll("[\\(\\):;.#$@*&!?{}\\“\\”]", "").replaceAll("\\[\\]", "")
+        .replaceAll("[-–][^a-zA-Z]", "").replaceAll(",", "").replaceAll("/ ([--⁃–])/g", "")
+        .replaceAll("–a", "a").replaceAll("\n+", "\n").replaceAll("\n", " ").trim().replaceAll(" +", " ").toLowerCase().replaceAll("\r", "")
         .trim();
 
     return formattedText.split(" ");
