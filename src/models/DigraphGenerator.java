@@ -4,7 +4,8 @@ package models;
  * A class the generates and returns digraphs based on an array of strings
  */
 import java.util.Collection;
-import models.exceptions.FailedToGenerateDigraphException;
+import utils.MultiMap;
+import exceptions.FailedToGenerateDigraphException;
 
 public class DigraphGenerator {
 

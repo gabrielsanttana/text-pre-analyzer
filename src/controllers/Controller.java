@@ -3,8 +3,9 @@ package controllers;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import models.*;
-import models.exceptions.FailedToConvertDigraphException;
-import models.exceptions.FailedToGenerateDigraphException;
+import utils.MultiMap;
+import exceptions.FailedToConvertDigraphException;
+import exceptions.FailedToGenerateDigraphException;
 
 /**
  * A class the servers as an interface between the MainView and the methods of the models

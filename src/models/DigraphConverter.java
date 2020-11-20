@@ -1,7 +1,8 @@
 package models;
 
 import java.util.*;
-import models.exceptions.FailedToConvertDigraphException;
+import utils.MultiMap;
+import exceptions.FailedToConvertDigraphException;
 
 /**
  * A class the converts digraphs into single strings
